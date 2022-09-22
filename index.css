@@ -1,0 +1,23 @@
+#navbar{
+    background-color: green;
+}
+button{
+    background-color: red;
+    color: white;
+ 
+}
+#sortprice{
+    margin-top: 20px;
+}
+#container{
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+
+}
+#container>div>img{
+    width: 255px;
+    height: 255px;
+    
+}
