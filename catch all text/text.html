@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            width: 300px;
+            height: 300px;
+            padding: 30px;
+            margin-top: 30px;
+            margin-left: 30px;
+            display: none;
+        }
+        #butt{
+            background-color: black;
+            color: white;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+        }
+        #offme>img{
+            width: 20px;
+            height: 20px;
+        }
+   #container{
+    background-color: red;
+    position:fixed;
+   }
+   a{
+    text-decoration: none;
+   }
+    </style>
+</head>
+<body>
+    
+    <div id="container">
+        <div> <button id="btn">  Highlight the a tag</button>   <button id="btnn">  off  Highlight a tag</button>
+            <button id="textpace">text space </button> <button id="textpaceoff">text space off</button>
+      <button id="offme"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJNhSp509W_4Gubv8jnSBwCTxJ3XT7NGkh47RW8Tgs&s" alt=""></button> </div>
+    </div>
+   
+    <div>  <a href="">gsdgfsdgsdgdsfgsdgsdg</a>
+        <a href="">gsafgasfgasfasfasf</a>
+        <p>sfsfsfsafsafsa</p>
+        <h1>fsafsfsfsafsaf</h1></div>
+        <a href="">gdfgdgsdgsdgdsgds</a>
+        <a href="">mmmmmmmmmmmmmmmmmmmmmmmm</a>
+        <button id="butt">click to change css</button>
+  
+</body>
+</html>
+<script>
+   
+   
+   
+   
+    let targetDiv= document.getElementById("container")
+
+
+    let btn= document.getElementById("butt")
+    btn.onclick= function(){
+       targetDiv.style.display= "block"
+    }
+    let offme= document.getElementById("offme")
+    offme.onclick= function(){
+        targetDiv.style.display= "none"
+    }
+
+
+
+
+    let a= document.querySelectorAll("a")
+    let bodytext= document.getElementById("btn")
+    let offhigh= document.getElementById("btnn")
+    bodytext.onclick= function(){
+        for(i=0;i<a.length;i++){
+            a[i].style.backgroundColor= "black"
+            a[i].style.color= "white"
+            a[i].style.padding= "5px"
+        }
+    }
+    offhigh.onclick= function(){
+        for(i=0;i<a.length;i++){
+            a[i].style.backgroundColor= ""
+            a[i].style.color= "black"
+        }
+    }
+
+
+
+
+
+
+
+
+    let body= document.querySelectorAll("body")
+    let textp= document.getElementById("textpace")
+    let textpo= document.getElementById("textpaceoff")
+   let c=0
+    textp.onclick= function(){
+        c++
+        if(c==2){
+        for(i=0;i<body.length;i++){
+            body[i].style.letterSpacing= "0px"
+        }
+    }
+        if(c==2){
+            for(i=0;i<body.length;i++){
+            body[i].style.letterSpacing= "1px"
+        }
+        }
+        if(c==3){
+            for(i=0;i<body.length;i++){
+            body[i].style.letterSpacing= "2px"
+        }
+        }
+        if(c==3){
+            for(i=0;i<body.length;i++){
+            body[i].style.letterSpacing= "3px"
+        }
+        }
+    
+    }
+
+</script>

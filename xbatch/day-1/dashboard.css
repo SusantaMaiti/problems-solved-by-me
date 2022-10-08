@@ -1,0 +1,25 @@
+tbody{
+    text-align: center;
+    
+}
+body{
+    text-align: center;
+}
+table{
+    margin: auto;
+}
+
+
+thead{
+    background-color: blue;
+}
+#remove{
+    background-color: red;
+    color: white;
+    
+    
+}
+img{
+    width: 150px;
+    height: 100px;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+</body>
+</html>
+<script>
+    //   setTimeout(() => {
+    //     alert("sign up")
+    // }, 5000);
+
+
+
+
+
+// function download(url){
+//     setTimeout(() => {
+//         console.log(`downloading ${url}`)
+//     }, 3000);
+        
+    
+   
+// }
+
+// function processing(picture){
+//     console.log(`processing ${picture}`)
+// }
+
+// download(url)
+// processing(url)
+
+
+//call back function
+// use call back
+// let url1 = `https://img.net/js1`
+// let url2 = `https://img.net/js2`
+// let url3 = `https://img.net/js3`
+// function download(url, callback){
+//     setTimeout(function(){
+//         console.log(`downloading ${url}`)
+//     callback(url)
+    
+//     }, 3000)
+// }
+
+// function processing(picture){
+//     console.log(`processing ${picture}`)
+// }
+// download(url1, function processing(picture){
+//     console.log(`processing ${picture}`)
+//     download(url2, function processing(picture){
+//     console.log(`processing ${picture}`)
+// })
+// })
+
+
+
+// getData()
+
+// appendData()
+
+
+// getData(url, appendData)
+
+
+// welcome promises
+let url = `https://img.net/js`
+function processing(picture){
+    console.log(`processing ${picture}`)
+}
+
+function download(url){
+return new Promise(function(resolve,reject){
+ setTimeout(function(){
+    console.log(`downloading ${url}`)
+    resolve(url)
+ }, 3000)
+})
+}
+//three things 
+//1 promise takes time
+//2  when promise is succsessful  (resolve), .then
+//2  when promise is unsuccsessful  (resolve), .catch
+
+//how to handle promise value
+
+let downloadPromise= download(url)
+downloadPromise.then(function(res){
+    processing(url)
+}).catch(function(err){
+    console.log(err)
+})
+
+
+
+</script>

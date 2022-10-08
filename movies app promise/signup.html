@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+        
+           border:black 10px solid;
+           width: 300px;
+           margin: auto;
+           padding: 10px;
+           margin-top: 50px;
+        }
+        form{
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+            gap: 10px;
+            width: 300px;
+            margin: auto;
+            
+        }
+        form>input{
+            height: 30px;
+        }
+        a{
+            margin: auto;
+        }
+        /* a{
+            height: 35px;
+            background-color: green;
+            color: white;
+            width: 50%;
+            margin: auto;
+         } */
+         
+        button{
+            height: 35px;
+            background-color: green;
+            color: white;
+            width: 50%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+  
+    </div>
+    <div id="container">
+<form action="" id="form">
+    <input type="text" id="name" placeholder="name">
+    <input type="email" placeholder="email" id="email">
+    <input type="password" placeholder="password" id="pass">
+    <button id="button">Sign Up</button>
+    <a id="a" href="signin.html">Sign in now</a>
+</form>
+
+    </div>
+</body>
+</html>
+<script>
+  let email= document.getElementById("email")
+    let   pass= document.getElementById("pass")
+let a= document.getElementById("a")
+    let btn= document.getElementById("button")
+    btn.onclick= function(){
+        
+        if(email.value=="" && pass.value==""){
+            alert("fill the form")
+        }else{
+            let obj={
+            email: document.getElementById("email").value,
+            pass: document.getElementById("pass").value
+
+        }
+        let arr= JSON.parse(localStorage.getItem("data")) || []
+        arr.push(obj)
+        localStorage.setItem("data", JSON.stringify(arr)) || []
+       
+            
+        }
+        
+        
+        
+    }
+
+</script>

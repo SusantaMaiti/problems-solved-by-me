@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+        
+           border:black 10px solid;
+           width: 300px;
+           margin: auto;
+           padding: 10px;
+           margin-top: 50px;
+        }
+        form{
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+            gap: 10px;
+            width: 300px;
+            margin: auto;
+            
+        }
+        form>input{
+            height: 30px;
+        }
+        button{
+            height: 35px;
+            background-color: green;
+            color: white;
+            width: 50%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="navbar">
+
+    </div>
+    <div id="container">
+<!-- <form action="" id="form"> -->
+    <input type="email" placeholder="email" id="email">
+    <input type="password" placeholder="password" id="pass">
+<button id="button">Sign in</button>
+  
+<!-- </form> -->
+    </div>
+</body>
+</html>
+<script>
+    let btn= document.getElementById("button")
+let c=0
+    let data= JSON.parse(localStorage.getItem("data")) || []
+    console.log(data)
+    let pass= document.getElementById("pass")
+    let email= document.getElementById("email")
+
+    btn.onclick = function(){
+        if(email.value=="" && pass.value==""){
+        alert("fill the credential")
+    }else{
+    for(i=0;i<data.length;i++){
+        if(data[i].email==email.value && data[i].pass==pass.value){
+            alert("sign in succsesful") 
+          location.href= "movies.html"
+        }else{
+            location.href= "signup.html"
+           
+        }
+    } 
+ 
+}
+
+    }
+
+    // console.log(c)
+   
+
+
+
+</script>

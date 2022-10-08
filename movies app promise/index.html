@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url("./WhatsApp\ Image\ 2022-07-10\ at\ 5.45.49\ PM.jpeg");
+        }
+h3{
+    margin-bottom: 20px;
+    color: white;
+    background-color: green;
+}
+#button{
+    background-color: black;
+    color: white;
+
+}
+#button:hover{
+    background-color: red;
+    color: black;
+}
+a{
+    margin-bottom: 20px;
+}
+    </style>
+</head>
+<body><a href="signin.html">Sign In</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="movies.html">Book the movies</a>
+    <h3>Submit the movies list for your page</h3>
+    <form action="" id="form">
+        <input type="url" id="image" placeholder="image url">
+        <input type="text" id="name" placeholder="movie name">
+        <input type="number" id="rating" placeholder="movie rating">
+        <input type="number" id="price" placeholder="booking price">
+        <button id="button">Submit</button>
+    </form>
+</body>
+</html>
+<script>
+let btn= document.getElementById("button")
+
+
+btn.onclick= function(){
+
+let obj={
+    image: document.getElementById("image").value,
+    name: document.getElementById("name").value,
+    rating: document.getElementById("rating").value,
+    price: document.getElementById("price").value
+}
+
+let arr= JSON.parse(localStorage.getItem("movies-data")) || []
+arr.push(obj)
+localStorage.setItem("movies-data", JSON.stringify(arr)) || []
+
+}
+</script>

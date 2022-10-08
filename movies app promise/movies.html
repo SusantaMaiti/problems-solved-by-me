@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+           body{
+            background-image: url("./WhatsApp\ Image\ 2022-07-10\ at\ 5.45.49\ PM.jpeg");
+        }
+        #container{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            text-align: center;
+            gap: 40px;
+        }
+        img{
+            width: 350px;
+            height: 350px;
+        }
+        a{
+            margin-bottom: 20px;
+        }
+        #btn{
+            background-color: red;
+            color: white;
+        }
+        #containerr>img{
+            width: 100%;
+            height: 450px;
+        }
+        #basic {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  
+  margin: auto;
+  margin-top: 50px;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+    </style>
+</head>
+<body>
+    <button id="btn" onclick="start()">Slide show the most popular movies</button>
+    <button id="btn" onclick="stop()">Stop Slide show</button>
+    <a href="index.html">Add more movies</a>
+    <div id="containerr"></div>
+<div id="container"></div>
+<div id="basic">
+   
+    <!-- <img id="loader" src=""> -->
+</div>
+    
+</body>
+</html>
+<script>
+
+let arr= JSON.parse(localStorage.getItem("movies-data")) || []
+let container= document.getElementById("container")
+
+
+
+function dishplayTable(arr){
+    let datadiv= document.getElementById("basic")
+    datadiv.innerHTML= null;
+    datadiv.id = "movies";
+    // container.innerHTML= null;
+    for(i=0;i<arr.length;i++){
+let div = document.createElement("div")
+let image= document.createElement("img")
+image.src= arr[i].image
+let name= document.createElement("p")
+name.innerText= arr[i].name
+let rating= document.createElement("p")
+rating.innerText= arr[i].rating
+let price= document.createElement("p")
+price.innerText= arr[i].price
+let book= document.createElement("button")
+book.innerText= "Book this movie"
+book.addEventListener("click", function(){
+    btn()
+})
+    div.append(image,name,rating,price,book,)
+    container.append(div)
+
+    function btn(){
+        console.log(name.innerText)
+    }
+}
+}
+
+
+
+
+
+
+// write a promise that you will get the data and .then you wil append
+
+let getme_dataPromise = new Promise(function(resolve,reject){
+setTimeout(function (){
+
+    let data = arr
+    if(arr!=null){
+        resolve(data)
+    }else{
+        reject(`err: server could not get you data /:`)
+    }
+}, 3000)
+})
+getme_dataPromise.then(function(res){
+    // res is a succsess values
+
+    dishplayTable(res)
+})
+.catch(function(err){
+    console.log("err",err)
+})
+// console.log(getme_dataPromise)
+
+//1.slideshow
+//2. getData
+//3 appendMovies
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let id;
+function start(){
+    // let arr= JSON.parse(localStorage.getItem("movies-data"))
+let i=0
+let containerr= document.getElementById("containerr")
+containerr.innerHTML= null;
+let img= document.createElement("img")
+
+img.src= arr[0].image;
+containerr.append(img)
+i++
+id= setInterval(function(){
+if(i== arr.length){
+    i=0
+}
+img.src= arr[i].image;
+containerr.append(img)
+i++
+    },1000)
+
+   
+}
+function stop(){
+        clearInterval(id)
+    }
+</script>
+
+
+<!-- [
+"https://thumbs.dreamstime.com/b/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.jpg",
+"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+"https://cdn.pixabay.com/photo/2015/05/27/02/58/buddha-785863__340.jpg",
+"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+"https://i.pinimg.com/originals/eb/e4/a3/ebe4a37984a8745e78555906765df486.jpg"
+] -->
