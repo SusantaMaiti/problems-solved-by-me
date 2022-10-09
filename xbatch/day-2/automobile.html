@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    
+
+// using Object.create()
+    let automobile= {
+        name: "honda",
+        price: 500000,
+    }
+    let a1= Object.create(automobile)
+    a1.newModel= "Yamaha"
+    console.log(a1)
+
+
+
+    
+
+//using CF
+let automobileProduct= function(name,price){
+ this.name= name;
+ this.price= price;
+}
+let aa1= new automobileProduct("honda",500000)
+automobileProduct.prototype.newmodel= function (){
+    this.newmodell= "Yahama"
+}
+aa1.newmodel()
+console.log(aa1)
+
+
+
+</script>
