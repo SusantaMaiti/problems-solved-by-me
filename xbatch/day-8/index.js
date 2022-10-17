@@ -9,6 +9,8 @@ try{
     let dat= await res.json()
     if(dat.Search!=undefined){
         dishPlayTable(dat.Search)
+    }else{
+        alert("movie not found")
     }
   
 }catch(err){
