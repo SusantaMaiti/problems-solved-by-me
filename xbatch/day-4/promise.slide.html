@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+                #basic {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  margin: auto;
+  margin-top: 50px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+    </style>
+</head>
+<body>
+    <button onclick="Start()">start</button>
+    <button onclick="Stop()">stop</button>
+    <div id="container"></div>
+    <div id="main">
+        
+    </div>
+    <div id="basic"></div>
+</body>
+</html>
+<script>
+
+    let arr=["https://thumbs.dreamstime.com/b/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.jpg",
+"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+"https://cdn.pixabay.com/photo/2015/05/27/02/58/buddha-785863__340.jpg",
+"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+"https://i.pinimg.com/originals/eb/e4/a3/ebe4a37984a8745e78555906765df486.jpg"]
+
+
+
+
+function dishplayTable(arr){
+    let datadiv= document.getElementById("basic")
+    datadiv.innerHTML= null;
+    datadiv.id = "movies";
+    for(i=0;i<arr.length;i++){
+let img= document.createElement("img")
+img.src= arr[i]
+
+
+document.getElementById("main").append(img)
+    }
+}
+
+
+let data_promise= new Promise(function(resolve,reject){
+    setTimeout(() => {
+        let data= arr
+        if(arr!=null){
+            resolve(data)
+        }else{
+            reject(`err: server could not found`)
+        }
+        
+    }, 3000);
+})
+data_promise.then(function(res){
+    dishplayTable(res)
+})
+.catch(function (err){
+    console.log(err)
+})
+
+
+let id;
+
+function Start(){
+
+    let i=0;
+    let container= document.getElementById("container")
+    container.innerHTML= null;
+    let img= document.createElement("img")
+    img.src= arr[0]
+    container.append(img)
+    i++
+    id = setInterval(function(){
+        if(i==arr.length){
+            i=0;
+        }
+        img.src= arr[i]
+        container.append(img)
+        i++
+    }, 3000)
+
+}
+function Stop(){
+    clearInterval(id)
+}
+
+</script>

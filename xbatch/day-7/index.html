@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #movies{
+            border: solid 1px black;
+            height: 200px;
+            width: 205px;
+            overflow: scroll;
+        }
+        input{
+            width: 200px;
+        }
+
+    </style>
+</head>
+<body>
+<input oninput="debounce(main, 1000)" type="text" id="query">
+<div id="movies"></div>
+    <div id="movie_div"></div>
+</body>
+</html>
+<script src="index.js"></script>

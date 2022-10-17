@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+
+<script>
+// fetch -- grab & get back;
+//goa
+//0. permission
+//1. car 
+//2. map (route)
+//fetch is our car.
+//destination is server. ( someone who serves -- data )
+
+//arguments
+//return
+//destroyed
+
+//url is the address/identity of a server
+
+let url = `https://fakestoreapi.com/products/category/jewelery`
+// fetch(url).then(function(res){
+
+//     return res.json()
+//     //collect the stream
+
+// }).then(function (res){
+//     console.log(res)
+// }).catch(function(err){
+//     console.log(err)
+// })
+
+
+
+//fetch()
+//.then / .catch
+//async await
+
+async function getData(){
+
+    try{
+    let res = await fetch(`https://fakestoreapi.com/products/category/jewelery`)
+  let data= await res.json()
+  console.log(data)
+
+}catch(err){
+    console.log(err)
+}
+}
+
+
+getData()
+
+
+
+
+
+
+
+
+
+//readablestream
+//stream - flow of droplets
+
+//sometimes information makes sense only when you collect it.
+
+
+
+//fetch is a promises 
+
+//fetch is like a gift box
+
+ 
+
+
+</script>
