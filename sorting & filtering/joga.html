@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #contain{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            text-align: center;
+        }
+        img{
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <select name="" id="filterrate">
+        <option value="filterbyrate">filter by rate</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+
+    <select name="" id="sortname">
+        <option value="all">sort by name</option>
+        <option value="ascending">Ascending</option>
+        <option value="decending">Decending</option>
+    </select>
+
+    
+    <select name="" id="sortprice">
+        <option value="all">sort by price</option>
+        <option value="ascending">Ascending</option>
+        <option value="decending">Decending</option>
+    </select>
+    <div id="contain"></div>
+
+    
+</body>
+</html>
+<script>
+    let array= [
+{rate: "1",price: 1200, name: "ddd", img: "https://5.imimg.com/data5/YJ/BO/MY-10973479/mens-designer-casual-shirt-500x500.jpg"},
+{rate: "0.5",price: 200, name: "ccc", img: "https://5.imimg.com/data5/YJ/BO/MY-10973479/mens-designer-casual-shirt-500x500.jpg"},
+{rate: "0.5",price: 100, name: "aaa", img: "https://5.imimg.com/data5/YJ/BO/MY-10973479/mens-designer-casual-shirt-500x500.jpg"},
+{rate: "1.5",price: 120, name: "zzz", img: "https://5.imimg.com/data5/YJ/BO/MY-10973479/mens-designer-casual-shirt-500x500.jpg"},
+{rate: "2",price: 15, name: "yyy", img: "https://5.imimg.com/data5/YJ/BO/MY-10973479/mens-designer-casual-shirt-500x500.jpg"},
+{rate: "2.5",price: 23000, name: "sss", img: "https://5.imimg.com/data5/YJ/BO/MY-10973479/mens-designer-casual-shirt-500x500.jpg"},
+{rate: "1",price: 1100, name: "fff", img: "https://5.imimg.com/data5/YJ/BO/MY-10973479/mens-designer-casual-shirt-500x500.jpg"},
+{rate: "3.5",price: 12200, name: "hhh", img: "https://5.imimg.com/data5/YJ/BO/MY-10973479/mens-designer-casual-shirt-500x500.jpg"},
+{rate: "5",price: 111100, name: "ggg", img: "https://5.imimg.com/data5/YJ/BO/MY-10973479/mens-designer-casual-shirt-500x500.jpg"},
+{rate: "3",price: 100000000, name: "lll", img: "https://5.imimg.com/data5/YJ/BO/MY-10973479/mens-designer-casual-shirt-500x500.jpg"},
+{rate: "4.5",price: 12400, name: "mmm", img: "https://5.imimg.com/data5/YJ/BO/MY-10973479/mens-designer-casual-shirt-500x500.jpg"},
+{rate: "4",price: 10010, name: "nnn", img: "https://5.imimg.com/data5/YJ/BO/MY-10973479/mens-designer-casual-shirt-500x500.jpg"},
+
+]
+
+
+
+
+
+displayTable(array)
+
+
+
+let filterrate= document.getElementById("filterrate").addEventListener("change", filterbyRate)
+let sortname= document.getElementById("sortname").addEventListener("change", sortnames)
+let sortprice= document.getElementById("sortprice").addEventListener("change", sortprices)
+
+function sortnames(){
+    const selected=  document.getElementById("sortname").value;
+    if(selected=="ascending"){
+         array.sort(function(a,b){
+            let x= a.name.toUpperCase();
+            let y= b.name.toUpperCase();
+            if(x>y) return 1;
+            if(x<y) return -1;
+            return 0;
+
+         })
+         displayTable(array)
+
+    }
+    if(selected=="decending"){
+         array.sort(function(a,b){
+            let x= a.name.toUpperCase();
+            let y= b.name.toUpperCase();
+            if(x>y) return -1;
+            if(x<y) return 1;
+            return 0;
+
+         })
+         displayTable(array)
+
+    }
+
+}
+
+
+function sortprices(){
+    const selected= document.getElementById("sortprice").value;
+    if(selected=="ascending"){
+        array.sort(function(a,b){
+            return a.price-b.price;
+        })
+        displayTable(array)
+    }
+    if(selected=="decending"){
+        array.sort(function(a,b){
+            return b.price-a.price;
+        })
+        displayTable(array)
+    }
+}
+
+
+function filterbyRate(){
+    let selected= document.getElementById("filterrate").value;
+    if(selected=="filterbyrate"){
+        displayTable(array)
+        return;
+    }
+
+    let fil= array.filter(function(elem){
+        return elem.rate==selected
+    })
+    displayTable(fil)
+}
+
+
+
+function displayTable(array){
+    let contain= document.getElementById("contain")
+    contain.innerHTML=""
+    for(i=0;i<array.length;i++){
+        let div= document.createElement("div")
+        let img=document.createElement("img")
+        img.src= array[i].img
+        let name= document.createElement("p")
+        name.innerText= array[i].name
+        let price= document.createElement("p")
+        price.innerText= array[i].price
+        let rate= document.createElement("p")
+        rate.innerText= array[i].rate
+        div.append(img,name,price,rate)
+
+
+
+        contain.append(div)
+    }
+}
+
+
+
+</script>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/cart.css">
+</head>
+<body>
+<div id="navbar"></div>
+    <div id="cartDetails_div">
+        <div>
+            <h2>Total Price - <span id="totalPrice_span"></span></h2>
+        </div>
+        <div>
+            <button id="addressPage_button">Address Page</button>
+        </div>
+    </div>
+    <div id="cartProducts_div">
+
+    </div>
+
+    <style>
+        #cartDetails_div{
+           display: flex;
+           justify-content: space-between;
+           background-color: aqua;
+           padding-top: 1rem;
+           padding-bottom: 1rem;
+        }
+        h2{
+            background-color: aqua;
+            color: black;
+        }
+        span{
+            background-color: aqua;
+            color: black;
+        }
+        #addressPage_button{
+            background-color: bisque;
+            padding: 0.5rem;
+            color: black;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin-left: 0;
+        }
+
+
+
+
+        #cartProducts_div{
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;
+            /* gap: 20px; */
+            padding: 2rem;
+        }
+        img{
+            height: 350px;
+            width: 100%;
+        }
+        #cartProducts_div >div{
+        margin: 1rem;
+        border: 1px solid white;
+        }
+        p{
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        button{
+            background-color: bisque;
+            color: black;
+            padding: 0.5rem;
+            margin-left: 0.5rem;
+        }
+
+        #cartProducts_div >div>div:nth-child(3){
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+            
+
+        }
+    </style>
+
+</body>
+</html>
+<script type="module" src="./script/cart.js"></script>

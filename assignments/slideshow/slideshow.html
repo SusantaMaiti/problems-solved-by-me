@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            align-items: center;
+            text-align: center;
+        }
+        div{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        img{
+            width: 100%;
+            height: 400px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <input type="url" id="imageurl" placeholder="paste your image link">
+        <button id="submitInput">submit the url</button>
+    </div>
+    <div>
+        <h2>Enter seconds to slide show after the seconds you want</h2>
+        <h3>default speed 3 second</h3>
+        <input  type="number" id="timeinput" placeholder="enter seconds you want to slide show after">
+
+    </div>
+    <button id="on" onclick="on()">ON</button>
+    
+    <button id="stop" onclick="stop()">OFF</button>
+    <div id="container"></div>
+
+    <!-- <div>
+        <input type="text" id="last" oninput="onin()">
+    </div> -->
+    
+</body>
+</html>
+<script>
+
+let btn= document.getElementById("submitInput")
+btn.onclick= function(){
+   
+
+    let imageurl= document.getElementById("imageurl").value
+   
+    let arr= JSON.parse(localStorage.getItem("images")) || []
+   
+    
+
+    arr.push(imageurl)
+    localStorage.setItem("images", JSON.stringify(arr))
+}
+
+
+
+let id;
+
+
+
+
+let arrr= JSON.parse(localStorage.getItem("images"))
+let container= document.getElementById("container")
+function on(){
+if(arrr.length>0){
+let interval= document.getElementById("timeinput").value*1000;
+        if(!interval){
+            interval=3*1000
+        }
+        let i=0;
+       
+        let img= document.createElement("img")
+        img.src= arrr[0]
+        container.append(img)
+        i++
+        id = setInterval(function(){      
+            if(i==arrr.length){
+                i=0
+
+            }
+            img.src= arrr[i]
+            container.append(img)
+
+            i++
+            
+            
+        }, interval);
+
+    }
+}
+    function stop(){
+       clearInterval(id)
+    }
+
+//    
+    
+
+
+
+
+</script>

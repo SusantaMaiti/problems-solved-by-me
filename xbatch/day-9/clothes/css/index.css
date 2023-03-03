@@ -1,0 +1,11 @@
+#clotheshomereturnlogo{
+    font-size: 60px;
+}
+#clothesLoginLogo{
+    height: 54px;
+}
+#customizediv{
+    display: none;
+    /* position:relative; */
+    background-color: aqua;
+}

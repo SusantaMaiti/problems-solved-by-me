@@ -5,24 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
-    <div class="navbar_div">
-        <div>
-             <h1>Sasta Flipkart</h1>
-        </div>
-        <div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li> <a href="product.html">Product</a> </li>
-                <li>Login</li>
-                <li>About</li>
-            </ul>
-        </div>
+   <div id="navbar"></div>
+    <!-- <h1>this is our product page</h1> -->
 
+
+    <div id="products_div">
+       
     </div>
-    <h1>this is our product page</h1>
+
+    <style>
+        #products_div{
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;
+            /* gap: 20px; */
+            padding: 2rem;
+        }
+        img{
+            height: 350px;
+            width: 100%;
+        }
+        #products_div >div{
+        margin: 1rem;
+        border: 1px solid white;
+        }
+        p{
+            text-align: center;
+        }
+        button{
+            background-color: bisque;
+            color: black;
+            padding: 0.5rem;
+            margin-left: 0.5rem;
+        }
+        #products_div >div>div:nth-child(3){
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+            
+
+        }
+    </style>
+
 </body>
 </html>
-<script src="product.js"></script>
+<script type="module" src="./script/product.js"></script>

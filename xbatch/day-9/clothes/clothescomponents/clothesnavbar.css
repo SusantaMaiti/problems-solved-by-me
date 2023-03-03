@@ -1,0 +1,12 @@
+#clothesnavbar_div{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    padding: 10px 30px 10px 30px;
+    background-color: aqua;
+    gap: 190px;
+    align-items: center;
+    margin-top: 20px;
+}
+#customizediv{
+    text-align: center;
+}

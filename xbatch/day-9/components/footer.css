@@ -1,0 +1,43 @@
+ #panel, #flip {
+    padding: 5px;
+    text-align: center;
+    background-color: #e5eecc;
+    border: solid 1px #c3c3c3;
+  }
+  #panel {
+    padding: 50px;
+    display: none;
+  }
+  
+  a{
+      text-decoration: none;
+      color: black;
+  }
+  #panelContainer{
+      display: grid;
+      grid-template-columns: repeat(6,1fr);
+  }
+  select{
+      width: 100px;
+  }
+  #footerUpPart{
+    padding: 0px 30px 0px 30px;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    text-align: left;
+    gap: 10px;
+  }
+  .socialmedialogo{
+    width: 30px;
+    height: 30px;
+  }
+button{
+  border-radius: 4px;
+  border: 0;
+  padding: 2px 6px;
+}
+
+#footerUpPart>div>p:hover{
+  background-color: yellow;
+  
+}

@@ -1,0 +1,20 @@
+#navbar{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    padding: 10px 30px 10px 30px;
+    background-color: #e5eecc;
+    align-items: center;
+
+}
+
+#homereturnlogo{
+    width: 60px;
+    height: 60px;
+}
+
+
+body{
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+}

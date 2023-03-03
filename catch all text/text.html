@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #container{
+        /* #container{
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             width: 300px;
             height: 300px;
@@ -25,19 +25,19 @@
         #offme>img{
             width: 20px;
             height: 20px;
-        }
-   #container{
+        } */
+   /* #container{
     background-color: red;
     position:fixed;
-   }
-   a{
+   } */
+   /* a{
     text-decoration: none;
-   }
+   } */
     </style>
 </head>
 <body>
     
-    <div id="container">
+    <!-- <div id="container">
         <div> <button id="btn">  Highlight the a tag</button>   <button id="btnn">  off  Highlight a tag</button>
             <button id="textpace">text space </button> <button id="textpaceoff">text space off</button>
       <button id="offme"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJNhSp509W_4Gubv8jnSBwCTxJ3XT7NGkh47RW8Tgs&s" alt=""></button> </div>
@@ -49,11 +49,31 @@
         <h1>fsafsfsfsafsaf</h1></div>
         <a href="">gdfgdgsdgsdgdsgds</a>
         <a href="">mmmmmmmmmmmmmmmmmmmmmmmm</a>
-        <button id="butt">click to change css</button>
+        <button id="butt">click to change css</button> -->
+        <div id="myDIV">Hover over me.</div>
+        <div id="hide">I am shown when someone hovers over <button>mafsdfsfsf</button> the div above.</div>
+        <h1>kafsdfjsdfsdfsdfdsfsdfsdfsdfsf</h1>
+        <h4>fdfasfsafasfasfasf</h4>
+        
   
 </body>
 </html>
-<script>
+<style>
+#hide {
+  display: none;
+}
+
+#myDIV:hover + #hide {
+  display: block;
+  position:fixed;
+  color: red;
+}
+#hide:hover{
+    display: block;
+    position:fixed;
+}
+</style>
+<!-- <script>
    
    
    
@@ -61,10 +81,11 @@
     let targetDiv= document.getElementById("container")
 
 
-    let btn= document.getElementById("butt")
-    btn.onclick= function(){
-       targetDiv.style.display= "block"
-    }
+    // let btn= document.getElementById("butt")
+    
+    // btn.onclick= function(){
+    //    targetDiv.style.display= "block"
+    // }
     let offme= document.getElementById("offme")
     offme.onclick= function(){
         targetDiv.style.display= "none"
@@ -126,4 +147,4 @@
     
     }
 
-</script>
+</script> -->

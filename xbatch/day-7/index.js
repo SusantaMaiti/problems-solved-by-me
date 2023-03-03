@@ -28,6 +28,10 @@ async function main(){
         
         let res = await fetch(`http://www.omdbapi.com/?apikey=1ab237cc&s=${query}`)
 
+        // https://www.omdbapi.com/?s=${searchquery}&page=1&apikey={your api key}
+
+        // let res = await fetch(`https://www.omdbapi.com/?s=${query}&page=1&apikey=1ab237cc`)
+
         let data= await res.json()
         // let actual_data= data.Search;
         // console.log(actual_data)
